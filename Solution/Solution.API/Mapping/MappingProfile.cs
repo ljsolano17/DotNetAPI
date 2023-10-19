@@ -8,7 +8,11 @@ namespace Solution.API.Mapping
         public MappingProfile() {
 
             CreateMap<data.GroupUpdate, DataModels.GroupUpdate>().ReverseMap();
+
             CreateMap<data.GroupComment, DataModels.GroupComment>().ReverseMap();
+
+            CreateMap<data.GroupUpdateSupport, DataModels.GroupUpdateSupport>().ReverseMap();
+
         } 
 
     }

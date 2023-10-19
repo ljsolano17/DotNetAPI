@@ -15,11 +15,13 @@ namespace Solution.DAL.EF
         }
 
         public virtual DbSet<GroupComment> GroupComments { get; set; }
+        public virtual DbSet<GroupUpdateSupport> GroupUpdateSupports { get; set; }
         public virtual DbSet<GroupUpdate> GroupUpdates { get; set; }
+        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+
             modelBuilder.Entity<GroupComment>(entity =>
             {
                 entity.HasKey(e => e.GroupCommentId).HasName("PK_dbo.GroupComments");
@@ -38,7 +40,19 @@ namespace Solution.DAL.EF
                 entity.Property(e => e.Status).HasColumnName("status");
                 entity.Property(e => e.UpdateDate).HasColumnType("datetime");
             });
-         
+
+            modelBuilder.Entity<GroupUpdateSupport>(entity =>
+            {
+                entity.HasKey(e => e.GroupUpdateSupportId)
+                .HasName("PK_dbo.GroupUpdateSupports");
+
+                entity.Property(e => e.UpdateSupportedDate).HasColumnType("datetime");
+
+                entity.HasOne(d => d.GroupUpdate)
+                    .WithMany(p => p.GroupUpdateSupports).HasForeignKey(d => d.GroupUpdateId)
+                    .HasConstraintName("FK_dbo.GroupUpdateSupports_dbo.GroupUpdates_GroupUpdateId");
+            });
+
             OnModelCreatingPartial(modelBuilder);
         }
 

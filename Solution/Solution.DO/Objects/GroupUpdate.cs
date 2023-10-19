@@ -20,6 +20,6 @@ namespace Solution.DO.Objects
 
         public virtual ICollection<GroupComment> GroupComments { get; set; } = new List<GroupComment>();
 
-       // public virtual ICollection<GroupUpdateSupport> GroupUpdateSupports { get; set; } = new List<GroupUpdateSupport>();
+        public virtual ICollection<GroupUpdateSupport> GroupUpdateSupports { get; set; } = new List<GroupUpdateSupport>();
     }
 }
