@@ -17,6 +17,8 @@ namespace Solution.DAL.Repository
 
         T GetOneById(int id);
 
+        T GetOneByMsg(Expression<Func<T, bool>> predicado);
+
         void Insert(T t);
         void Update(T t);
         void Delete(T t);

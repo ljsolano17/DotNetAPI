@@ -13,6 +13,8 @@ namespace Solution.API.Mapping
 
             CreateMap<data.GroupUpdateSupport, DataModels.GroupUpdateSupport>().ReverseMap();
 
+            CreateMap<data.Updates, DataModels.Updates>().ReverseMap();
+
         } 
 
     }

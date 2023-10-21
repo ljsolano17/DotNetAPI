@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using Solution.DAL.EF;
 
 namespace Solution.DAL.Repository
@@ -60,6 +61,13 @@ namespace Solution.DAL.Repository
         public T GetOneById(int id)
         {
             return dbContext.Set<T>().Find(id);
+        }
+
+       
+
+        public T GetOneByMsg(Expression<Func<T, bool>> predicado)
+        {
+            return dbContext.Set<T>().FirstOrDefault(predicado);
         }
 
         public void Insert(T t)
