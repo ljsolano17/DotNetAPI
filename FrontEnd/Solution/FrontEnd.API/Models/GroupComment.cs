@@ -1,15 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 
-namespace Solution.API.DataModels
+namespace FrontEnd.API.Models
 {
-    public class GroupComment
+    public partial class GroupComment
     {
         public int GroupCommentId { get; set; }
-
         public string? CommentText { get; set; }
-
         public int GroupUpdateId { get; set; }
-
         public DateTime CommentDate { get; set; }
 
         public virtual GroupUpdate? GroupUpdate { get; set; }
